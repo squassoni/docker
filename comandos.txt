@@ -1,0 +1,69 @@
+## Validando instalacao do docker
+docker container run hello-world
+
+## Download automático das imagens não encontradas
+docker image pull
+
+## Criação do container
+docker container create
+
+## Execução do container 
+docker container start
+
+## Uso do modo interativo
+docker container exec
+
+## Modo interativo
+• docker container run -it
+• docker container start -ai
+• docker container exec -t
+
+## Listar os containers ativos
+docker container ps
+
+## Listar as imagens
+docker image ps
+
+docker container run -d -p 80:80 --name cont123 my-image-nginx
+docker container run -d --name cont125 -p 80:80 -v /home/bruno/html:/usr/share/nginx/html my-image-nginx
+docker container start cont123
+docker container stop cont123
+docker container rm cont123
+
+## Construir uma imagem
+docker image build -t my-image-nginx <path>
+
+## To delete all image or all containers
+docker system prune
+
+## Start docker compose file
+docker-compose up -d
+
+## Ver logs docker compose
+docker-compose logs -f -t
+
+## Escalando containers 
+docker-compose up -d --scale worker=3
+
+## Criando uma image apartir do compose
+docker-compose build 
+docker-compose up --build
+
+## Listar network
+docker network ls
+
+## Criar nova network
+docker network create --driver bridge rede_nova
+
+## Criar um container com a network nova
+docker container run -d --name container1 --net my_first_bridge alpine sleep 1000
+
+## Add um container a uma network existente
+docker network connect cp-all-in-one-540_default container1
+    testando: docker container exec -it container1 ping 172.18.0.2
+
+## Removendo um container de uma network existente
+docker network disconnect cp-all-in-one-540_default container1
+
+## Executando comandos no modo interativo
+docker container exec -it zookeeper hostname -i

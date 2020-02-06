@@ -1,0 +1,12 @@
+E-mail com workers
+
+# Criando o servico de DB em postgres
+
+docker-compose exec db psql -U postgres -c '\l'
+docker-compose exec db psql -U postgres -f /scripts/create_table.sqldocker-compose exec db psql -U postgres -f /scripts/check.sql
+docker-compose exec db psql -U postgres -f /scripts/check.sql
+docker-compose exec db psql -U postgres -d email_sender -c 'select * from emails'
+
+# Criando o servido de front com nginx
+
+docker-compose logs -f -t
