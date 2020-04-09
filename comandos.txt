@@ -67,3 +67,21 @@ docker network disconnect cp-all-in-one-540_default container1
 
 ## Executando comandos no modo interativo
 docker container exec -it zookeeper hostname -i
+
+## Entrar dentro do container
+docker exec -it kafka-security-manager_kafka1_1 bash
+
+## Para todas as instâncias
+docker stop $(docker ps -a -q)
+
+## Remove todas as instâncias
+docker rm $(docker ps -a -q)
+
+## Para todas as imagens
+docker image rm $(docker image ls -a -q)
+
+## Para todos os volumes
+docker volume prune
+
+## Limpa o docker inteiro
+docker system prune --all --force --volumes
